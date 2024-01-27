@@ -1,0 +1,166 @@
+<mvc:View
+    controllerName="ns.project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    height="100%"
+>
+    <App>
+        <pages>
+            <Page title="openSAP - Developing with SAPUI5">
+                <content>
+                    <IconTabBar
+                        id="idTopLevelIconTabBar"
+                        selectedKey="db"
+                    >
+                        <items>
+                            <IconTabFilter
+                                id="start"
+                                text="{i18n>gettingStartedFilter}"
+                            >
+                                <!-- <Page
+                                    id="page"
+                                    title="{i18n>title}"
+                                > -->
+                                <!-- <content> -->
+                                <Button
+                                    text="Click here"
+                                    icon="sap-icon://keyboard-and-mouse"
+                                    press="onShowHello"
+                                />
+                                <Input
+                                    value="{helloPanel>/recipient/name}"
+                                    description="Hello {helloPanel>/recipient/name}"
+                                    valueLiveUpdate="true"
+                                    width="60%"
+                                />
+                                <l:BlockLayout background="Dashboard">
+                                    <l:BlockLayoutRow>
+                                        <l:BlockLayoutCell>
+                                            <form:SimpleForm editable="true">
+                                                <form:content>
+                                                    <core:Title
+                                                        text="Personal Details"
+                                                    />
+                                                    <Label text="First Name" />
+                                                    <Input />
+                                                    <Label text="Last Name" />
+                                                    <Input />
+                                                    <Label text="Email ID" />
+                                                    <Input />
+                                                    <Label text="Password" />
+                                                    <Input />
+                                                </form:content>
+                                            </form:SimpleForm>
+                                            <Button
+                                                text="Register"
+                                                press="onPressSubmit"
+                                            />
+                                        </l:BlockLayoutCell>
+                                    </l:BlockLayoutRow>
+                                </l:BlockLayout>
+                                <!-- </content>
+                                </Page> -->
+                            </IconTabFilter>
+
+                            <IconTabFilter
+                                id="layouts"
+                                text="{i18n>layoutFilter}"
+                            >
+                                <MessageStrip
+                                    type="Information"
+                                    showIcon="true"
+                                    text="Here's a Form Layout inside an Icon Tab Bar …"
+                                />
+                                <form:SimpleForm
+                                    id="simpleFormChange"
+                                    title="Address"
+                                    editable="true"
+                                    class="editableForm"
+                                >
+                                    <form:content>
+                                        <Label text="{i18n>layoutFormName}" />
+                                        <Input value="{address>/Name}" />
+                                        <Label text="{i18n>layoutFormStreet}" />
+                                        <Input value="{address>/Street}" />
+                                        <Label
+                                            text="{i18n>layoutFormHouseNumber}"
+                                        />
+                                        <Input value="{address>/HouseNumber}" />
+                                        <Label
+                                            text="{i18n>layoutFormZIPCode}"
+                                        />
+                                        <Input value="{address>/ZIPCode}" />
+                                        <Label text="{i18n>layoutFormCity}" />
+                                        <Input value="{address>/City}" />
+                                        <Label
+                                            text="{i18n>layoutFormCountry}"
+                                        />
+                                        <Select>
+                                            <items>
+                                                <core:Item
+                                                    text="{i18n>layoutCountryGermany}"
+                                                />
+                                                <core:Item
+                                                    text="{i18n>layoutCountryUSA}"
+                                                />
+                                                <core:Item
+                                                    text="{i18n>layoutCountryEngland}"
+                                                />
+                                            </items>
+                                        </Select>
+                                    </form:content>
+                                </form:SimpleForm>
+                                <Toolbar>
+                                    <ToolbarSpacer />
+                                    <Button
+                                        text="{i18n>layoutPublishButton}"
+                                        type="Accept"
+                                    />
+                                    <Button text="{i18n>layoutDraftButton}" />
+                                </Toolbar>
+                            </IconTabFilter>
+
+                            <IconTabFilter
+                                id="ProductLayout"
+                                text="Products Detail"
+                            >
+                                <Table items="{
+			path: '/Products' 
+		}">
+                                    <columns>
+                                        <Column width="12em">
+                                            <Text text="Product ID" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Product Name" />
+                                        </Column>
+                                        <Column>
+                                            <Text text="Supplier ID" />
+                                        </Column>
+                                    </columns>
+                                    <items>
+                                        <ColumnListItem
+                                            vAlign="Middle"
+                                            type="Navigation"
+                                            press="onPressItem"
+                                        >
+                                            <cells>
+                                                <Text text="{ProductID}" />
+                                                <Text text="{ProductName}" />
+                                                <Text text="{SupplierID}" />
+                                            </cells>
+                                        </ColumnListItem>
+                                    </items>
+                                </Table>
+                            </IconTabFilter>
+                        </items>
+                    </IconTabBar>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
